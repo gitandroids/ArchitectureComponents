@@ -11,8 +11,7 @@ import java.util.List;
 
 @Dao    // It say room that it is a dao
 public interface NoteDao {
-    @Insert
-        // We just define the method name return type and the arguments and Room adds necessary code.
+    @Insert    // We just define the method name return type and the arguments and Room adds necessary code.
     void insert(Note note);
 
     @Update
