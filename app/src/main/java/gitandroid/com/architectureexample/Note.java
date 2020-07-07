@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "note_table")
 public class Note {  // By default the table name will be Note but we changed it to note_table.
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    protected int id;
     private String title;   // Room will automatically generate columns for these fields.
     private String description;
     //@ColumnInfo(name = "priority_column") // You can make the name different other than field here.
