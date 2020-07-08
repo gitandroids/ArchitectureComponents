@@ -12,9 +12,6 @@ public class NoteRepository {
     private NoteDao noteDao;
     private LiveData<List<Note>> allNotes;
 
-    public NoteRepository() {
-
-    }
     public NoteRepository(Application application) {   // Application is a subclass of context. So we can use it to create our database instance.
         NoteDatabase database = NoteDatabase.getInstance(application);
         noteDao = database.noteDao(); // Normally we cant call abstract methods because they dont have a body. But Room subclasses our abstract class
@@ -91,6 +88,7 @@ public class NoteRepository {
         private DeleteAllNotesAsyncTask(NoteDao noteDao) {
             this.noteDao = noteDao;
         }
+
         @Override
         protected Void doInBackground(Void... voids) {
             noteDao.deleteAllNotes();

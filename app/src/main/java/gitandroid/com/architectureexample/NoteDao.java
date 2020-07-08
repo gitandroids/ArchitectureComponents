@@ -9,7 +9,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
-@Dao    // It say room that it is a dao
+@Dao    // It says to room that it is a dao (Data Access Object)
 public interface NoteDao {
     @Insert    // We just define the method name return type and the arguments and Room adds necessary code.
     void insert(Note note);
