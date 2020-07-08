@@ -13,6 +13,7 @@ import java.util.List;
 
 public class NoteAdaptor extends RecyclerView.Adapter<NoteAdaptor.NoteHolder> {
     private List<Note> notes = new ArrayList<>();
+    private OnItemClickListener listener;
 
     @NonNull
     @Override
@@ -55,6 +56,27 @@ public class NoteAdaptor extends RecyclerView.Adapter<NoteAdaptor.NoteHolder> {
             textViewDescription = itemView.findViewById(R.id.text_view_description);
             textViewPriority = itemView.findViewById(R.id.text_view_priority);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(notes.get(position));
+                    }
+                }
+            });
+
         }
+
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Note note);
+    }
+    // We need to referance the interface. In listview we have these methods . But for recyclerView we have to write them ourself.
+    // We can later use this listener variable to call our onItemClick Method on it.
+    // This way we will forward our note object to whatever interfaces this.
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;   // We assign our listener variable to the listener we get passed.
     }
 }
