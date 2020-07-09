@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Note> notes) {  // This will only called when our activity is on foreground.
                 //update RecyclerView
-                adapter.setNotes(notes);
+                adapter.submitList(notes);  // method of the list adapter.
             }
         });
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -111,8 +111,7 @@ public class MainActivity extends AppCompatActivity {
             note.setId(id);
             noteViewModel.update(note);
             Toast.makeText(this, "Note Updated", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             Toast.makeText(this, "Note not saved.", Toast.LENGTH_SHORT).show();
         }
     }

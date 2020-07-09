@@ -45,7 +45,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
             setTitle("Edit note");
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
-            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
+            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY, 1));
         } else {
             setTitle("Add Note");
         }
@@ -90,7 +90,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
         if (id != -1) {
             data.putExtra(EXTRA_ID, id);
         }
-        setResult(RESULT_OK,data);  // We indicate if the input was successful or not. We will get these values in MainActivity.
+        setResult(RESULT_OK, data);  // We indicate if the input was successful or not. We will get these values in MainActivity.
         finish();
     }
 }
